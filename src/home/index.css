@@ -1,0 +1,14 @@
+.home-container {
+    min-width: 100vw;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);  /* ✨ Subtle gradient background */
+    overflow-x: hidden;  /* ✨ Prevent horizontal scroll */
+}
+
+.home-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 70px;  /* ✨ Navbar height (70px) + spacing (16px) */
+    gap: 0;  /* ✨ Remove gaps - sections will have their own spacing */
+}

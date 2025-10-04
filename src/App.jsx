@@ -1,21 +1,17 @@
-// src/App.jsx
-
 import React from 'react';
-// 1. Import component InfoPage của bạn
-//    (Đường dẫn './components/InfoPage.jsx' dựa trên ảnh chụp màn hình của bạn)
+
+// Import 
+import Navigation from './navigation/Navigation.jsx';
 import InfoPage from './components/InfoPage.jsx';
-import navigation from './components/navigation.jsx';
-import content from './components/content.jsx';
-import './App.css';
 
 function App() {
-  // 2. Hiển thị component InfoPage là nội dung chính của ứng dụng
+  // return app structure with Navigation and InfoPage components
   return (
-   <InfoPage></InfoPage>
-   <navigation>  </navigation>
-   <content> </content>
+    <>
+      <Navigation />
+      <InfoPage />
+    </>
   );
-
 }
 
 export default App;
