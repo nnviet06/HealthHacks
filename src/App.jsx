@@ -7,7 +7,7 @@ import Play from './play/index.jsx';
 import InfoPage from './info/InfoPage.jsx';
 
 export default function App() {
-    const [currentPage, setCurrentPage] = useState('home');  // ✨ Move inside component
+    const [currentPage, setCurrentPage] = useState('home');
 
     const contentPages = {
         home: <Home />,
