@@ -2,38 +2,12 @@
 import React, { useState } from 'react';
 import './InfoPage.css'; // Import file CSS
 
-// --- Navigation Bar Component ---
-const Navbar = () => {
-  return (
-    <nav className="navbar">
-      <div className="navbar-container">
-        <a href="/" className="navbar-logo">
-          Web Name
-        </a>
-        <ul className="nav-menu">
-          <li className="nav-item">
-            <a href="/" className="nav-links">
-              Home
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="/about" className="nav-links">
-              About
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  );
-};
-
-
 // ---  Carousel ---
 const foodItems = [
-  { id: 1, name: 'Chicken', image: 'https://via.placeholder.com/400x300/FF5733/FFFFFF?text=Chicken' },
-  { id: 2, name: 'Broccoli', image: 'https://via.placeholder.com/400x300/33FF57/FFFFFF?text=Broccoli' },
-  { id: 3, name: 'Salmon', image: 'https://via.placeholder.com/400x300/3357FF/FFFFFF?text=Salmon' },
-  { id: 4, name: 'Tomato', image: 'https://via.placeholder.com/400x300/FF33D4/FFFFFF?text=Tomato' },
+  { id: 1, name: 'Chicken', image: 'https://placehold.co/400x300/FF5733/FFFFFF?text=Chicken' },
+  { id: 2, name: 'Broccoli', image: 'https://placehold.co/400x300/33FF57/FFFFFF?text=Broccoli' },
+  { id: 3, name: 'Salmon', image: 'https://placehold.co/400x300/3357FF/FFFFFF?text=Salmon' },
+  { id: 4, name: 'Tomato', image: 'https://placehold.co/400x300/FF33D4/FFFFFF?text=Tomato' },
 ];
 
 
@@ -55,7 +29,6 @@ const InfoPage = () => {
 
   return (
     <div>
-      <Navbar /> {/* Navigation Bar */}
 
       <div className="home-container">
         {/* Title section */}

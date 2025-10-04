@@ -3,7 +3,7 @@ import './index.css';
 import { useState } from 'react';
 import { Navigation, NavigationButton } from './navigation/navigation.jsx';
 import Home from './home/index.jsx';
-import InfoPage from './components/InfoPage.jsx';
+import InfoPage from './info/InfoPage.jsx';
 
 export default function App() {
     const [currentPage, setCurrentPage] = useState('home');  // ✨ Move inside component
@@ -18,13 +18,13 @@ export default function App() {
         <Navigation
             leftButtons={
                 <>
-                    <NavigationButton href="#home" className="active">
+                    <NavigationButton href="#home" onClick={() => setCurrentPage('home')} className="active">
                         Home
                     </NavigationButton>
-                    <NavigationButton href="#about">
+                    <NavigationButton href="#about" onClick={() => setCurrentPage('home')}>
                         About
                     </NavigationButton>
-                    <NavigationButton href="#info">
+                    <NavigationButton onClick={() => setCurrentPage('info')}>
                         Info
                     </NavigationButton>
                 </>
@@ -39,13 +39,13 @@ export default function App() {
         <Navigation
             leftButtons={
                 <>
-                    <NavigationButton href="#home" className="active">
+                    <NavigationButton href="#home" onClick={() => setCurrentPage('home')} className="active">
                         Home
                     </NavigationButton>
-                    <NavigationButton href="#about">
+                    <NavigationButton href="#about" onClick={() => setCurrentPage('home')}>
                         About
                     </NavigationButton>
-                    <NavigationButton onClick={() => {setCurrentPage('info'); console.log('Navigating to Info');}} href="#info">
+                    <NavigationButton onClick={() => setCurrentPage('info')} href="#info">
                         Info
                     </NavigationButton>
                 </>
@@ -60,10 +60,10 @@ export default function App() {
         <Navigation
             leftButtons={
                 <>
-                    <NavigationButton href="#home" className="active">
+                    <NavigationButton href="#home" onClick={() => setCurrentPage('home')} className="active">
                         Home
                     </NavigationButton>
-                    <NavigationButton href="#about">
+                    <NavigationButton href="#about" onClick={() => setCurrentPage('home')}>
                         About
                     </NavigationButton>
                 </>

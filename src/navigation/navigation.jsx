@@ -19,8 +19,13 @@ export function Navigation({ leftButtons, rightButtons }) {
 }
 
 export function NavigationButton({ onClick, href, children, className = "" }) {
+    const handleClick = (e) => { // Prevent default link navigation
+        if (onClick) {
+            onClick(e);
+        }
+    };
     return (
-        <a onClick={onClick} href={href} className={`navigation-button ${className}`}>
+        <a onClick={handleClick} href={href} className={`navigation-button ${className}`}>
             {children}
         </a>
     )
