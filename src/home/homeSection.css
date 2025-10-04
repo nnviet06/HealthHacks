@@ -1,10 +1,50 @@
 .home-section-container {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    margin-bottom: 16px;
-    background-color: #FFFFFF;
-    padding: 16px;
-    color: #000000;
+    min-height: calc(100vh - 86px);  /* ✨ Full viewport minus navbar */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);  /* ✨ Vibrant gradient */
+    padding: 60px 20px;
+    color: #FFFFFF;  /* ✨ White text on gradient */
+    text-align: center;
+}
+
+.home-section-container h1 {
+    font-size: 3.5rem;  /* ✨ Large hero title */
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);  /* ✨ Subtle shadow */
+    animation: fadeInUp 1s ease-out;  /* ✨ Entrance animation */
+}
+
+.home-section-container p {
+    font-size: 1.5rem;  /* ✨ Larger subtext */
+    font-weight: 300;
+    max-width: 700px;  /* ✨ Limit line length for readability */
+    line-height: 1.8;
+    opacity: 0.95;
+    animation: fadeInUp 1s ease-out 0.2s backwards;  /* ✨ Delayed animation */
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ✨ Responsive */
+@media (max-width: 768px) {
+    .home-section-container h1 {
+        font-size: 2.5rem;
+    }
+    
+    .home-section-container p {
+        font-size: 1.2rem;
+    }
 }

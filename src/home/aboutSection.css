@@ -4,32 +4,81 @@
     justify-content: flex-start;
     align-items: center;
     background-color: #FFFFFF;
-    padding: 16px;
-    color: #000000;
+    padding: 80px 20px;  /* ✨ More generous padding */
+    color: #333333;  /* ✨ Darker text for better contrast */
+    min-height: 100vh;  /* ✨ Full viewport height */
 }
+
 .about-section-container h1 {
-    padding: 24px 50px;
-    background-color: #D9D9D9;
+    font-size: 2.5rem;  /* ✨ Larger heading */
+    font-weight: 700;
+    margin-bottom: 60px;  /* ✨ More space below */
+    padding: 20px 60px;
+    background: linear-gradient(135deg, #4CAF50 0%, #81C784 100%);  /* ✨ Gradient background */
+    color: white;
+    border-radius: 50px;  /* ✨ Pill shape */
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);  /* ✨ Soft shadow */
 }
+
 .purpose-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: flex-start;
+    align-items: stretch;  /* ✨ Equal height boxes */
     justify-content: center; 
-    padding: 16px;
+    gap: 30px;  /* ✨ Modern gap property */
+    padding: 20px;
+    max-width: 1200px;  /* ✨ Constrain width */
 }
+
 .purpose-box {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    margin: 8px 16px;
-    padding: 8px;
-    width: 200px;
+    padding: 30px 20px;  /* ✨ More padding */
+    width: 280px;  /* ✨ Slightly wider */
+    background-color: #f8f9fa;  /* ✨ Light background */
+    border-radius: 16px;  /* ✨ Rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);  /* ✨ Elevation */
+    transition: all 0.3s ease;  /* ✨ Smooth transitions */
 }
+
+.purpose-box:hover {
+    transform: translateY(-8px);  /* ✨ Lift on hover */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);  /* ✨ Deeper shadow */
+}
+
+.purpose-box img {
+    width: 100px;  /* ✨ Set image size */
+    height: 100px;
+    margin-bottom: 20px;
+    border-radius: 50%;  /* ✨ Circular images */
+    object-fit: cover;
+    background-color: #e9ecef;  /* ✨ Placeholder bg */
+}
+
 .purpose-box p {
-    font-size: 16px;
+    font-size: 1.1rem;  /* ✨ Slightly larger */
+    line-height: 1.6;
     text-align: center;
-    color: #000000;
+    color: #495057;  /* ✨ Softer text color */
+    font-weight: 400;
+}
+
+/* ✨ Responsive */
+@media (max-width: 768px) {
+    .about-section-container {
+        padding: 60px 20px;
+    }
+    
+    .about-section-container h1 {
+        font-size: 2rem;
+        padding: 16px 40px;
+    }
+    
+    .purpose-box {
+        width: 100%;
+        max-width: 350px;
+    }
 }
