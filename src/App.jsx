@@ -21,24 +21,27 @@ export default function App() {
 
     return (
         <>
-            <main className="content-container">
-                <Navigation
-                    leftButtons={
-                        <>
-                            <NavigationButton href="#home" onClick={() => setCurrentPage('home')} className="active">
-                                Home
-                            </NavigationButton>
-                            <NavigationButton href="#about" onClick={() => setCurrentPage('home')}>
-                                About
-                            </NavigationButton>
-                        </>
-                    }
-                    rightButtons={
-                        <NavigationButton href="#play" onClick={() => setCurrentPage('play')} className="play-button">
-                            Play
+        <Navigation
+                leftButtons={
+                    <>
+                        <NavigationButton href="#home" onClick={() => setCurrentPage('home')} className="active">
+                            Home
                         </NavigationButton>
-                    }
-                />
+                        <NavigationButton href="#about" onClick={() => setCurrentPage('home')}>
+                            About
+                        </NavigationButton>
+                        <NavigationButton href="#info" onClick={() => setCurrentPage('info')}>
+                            Info
+                        </NavigationButton>
+                    </>
+                }
+                rightButtons={
+                    <NavigationButton href="#play" onClick={() => setCurrentPage('play')} className="play-button">
+                        Play
+                    </NavigationButton>
+                }
+            />
+            <main className="content-container">
                 {renderContent()}
             </main>
         </>
