@@ -1,17 +1,69 @@
-import React from 'react';
+import './App.css';    
+import './index.css';
+import { useState } from 'react';
+import { Navigation, NavigationButton } from './navigation/navigation.jsx';
+import Home from './home/index.jsx';
 
-// Import 
-import Navigation from './navigation/Navigation.jsx';
-import InfoPage from './components/InfoPage.jsx';
+export default function App() {
+    const [currentPage, setCurrentPage] = useState('home');  // ✨ Move inside component
 
-function App() {
-  // return app structure with Navigation and InfoPage components
-  return (
-    <>
-      <Navigation />
-      <InfoPage />
-    </>
-  );
+    const contentPages = {
+        home: <Home />,
+    };
+
+    const navigationPages = {
+        home: 
+        <Navigation
+            leftButtons={
+                <>
+                    <NavigationButton href="#home" className="active">
+                        Home
+                    </NavigationButton>
+                    <NavigationButton href="#about">
+                        About
+                    </NavigationButton>
+                </>
+            }
+            rightButtons={
+                <NavigationButton href="#play" className="play-button">
+                    Play
+                </NavigationButton>
+            }
+        />,
+        misc: 
+        <Navigation
+            leftButtons={
+                <>
+                    <NavigationButton href="#home" className="active">
+                        Home
+                    </NavigationButton>
+                    <NavigationButton href="#about">
+                        About
+                    </NavigationButton>
+                </>
+            }
+            rightButtons={
+                <NavigationButton href="#play" className="play-button">
+                    Play
+                </NavigationButton>
+            }
+        />,
+    };
+
+    function renderNavigation() {
+        return navigationPages[currentPage] || navigationPages.misc;
+    }
+
+    function renderContent() {
+        return contentPages[currentPage];
+    }
+
+    return (
+        <>
+            {renderNavigation()}
+            <main className="content-container">
+                {renderContent()}
+            </main>
+        </>
+    )
 }
-
-export default App;
