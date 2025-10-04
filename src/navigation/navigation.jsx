@@ -20,6 +20,7 @@ export function Navigation({ leftButtons, rightButtons }) {
 
 export function NavigationButton({ href, children, className = "" }) {
     return (
+        
         <a href={href} className={`navigation-button ${className}`}>
             {children}
         </a>
