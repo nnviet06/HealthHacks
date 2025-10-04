@@ -1,0 +1,35 @@
+.navigation-container {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0;
+    background-color: #f9eaea;
+    padding: 16px;
+    height: 70px;
+    width: 100%;
+
+}
+.navigation-side {
+    display: flex;
+    flex-direction: row;
+    margin-right: 48px;
+}
+.navigation-side.right {
+    padding: 8px 0px;
+}
+.navigation-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #000000;
+}
+.navigation-button.play-button {
+    border-radius: 32px;
+    background-color: red;
+    width: 70px;    
+}
