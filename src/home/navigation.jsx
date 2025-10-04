@@ -8,9 +8,10 @@ export default function Navigation() {
                 <a className="navigation-button">Home</a>
                 <a className="navigation-button">About</a>
             </div>
-            <div className="navigation-side right">
+            <div className="navigation-side">
                 <a className="navigation-button play-button">Play</a>
             </div>
         </div>
+        
     )
 }

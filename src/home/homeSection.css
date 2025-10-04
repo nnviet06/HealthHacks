@@ -1,0 +1,10 @@
+.home-section-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 16px;
+    background-color: #FFFFFF;
+    padding: 16px;
+    color: #000000;
+}
