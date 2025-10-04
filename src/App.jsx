@@ -6,79 +6,12 @@ import Home from './home/index.jsx';
 import InfoPage from './info/InfoPage.jsx';
 
 export default function App() {
-    const [currentPage, setCurrentPage] = useState('home');  // ✨ Move inside component
+    const [currentPage, setCurrentPage] = useState('home');
 
     const contentPages = {
         home: <Home />,
         info: <InfoPage />,
     };
-
-    const navigationPages = {
-        home: 
-        <Navigation
-            leftButtons={
-                <>
-                    <NavigationButton href="#home" onClick={() => setCurrentPage('home')} className="active">
-                        Home
-                    </NavigationButton>
-                    <NavigationButton href="#about" onClick={() => setCurrentPage('home')}>
-                        About
-                    </NavigationButton>
-                    <NavigationButton onClick={() => setCurrentPage('info')}>
-                        Info
-                    </NavigationButton>
-                </>
-            }
-            rightButtons={
-                <NavigationButton href="#play" className="play-button">
-                    Play
-                </NavigationButton>
-            }
-        />,
-        info:
-        <Navigation
-            leftButtons={
-                <>
-                    <NavigationButton href="#home" onClick={() => setCurrentPage('home')} className="active">
-                        Home
-                    </NavigationButton>
-                    <NavigationButton href="#about" onClick={() => setCurrentPage('home')}>
-                        About
-                    </NavigationButton>
-                    <NavigationButton onClick={() => setCurrentPage('info')} href="#info">
-                        Info
-                    </NavigationButton>
-                </>
-            }
-            rightButtons={
-                <NavigationButton href="#play" className="play-button">
-                    Play
-                </NavigationButton>
-            }
-        />,
-        misc: 
-        <Navigation
-            leftButtons={
-                <>
-                    <NavigationButton href="#home" onClick={() => setCurrentPage('home')} className="active">
-                        Home
-                    </NavigationButton>
-                    <NavigationButton href="#about" onClick={() => setCurrentPage('home')}>
-                        About
-                    </NavigationButton>
-                </>
-            }
-            rightButtons={
-                <NavigationButton href="#play" className="play-button">
-                    Play
-                </NavigationButton>
-            }
-        />,
-    };
-
-    function renderNavigation() {
-        return navigationPages[currentPage] || navigationPages.misc;
-    }
 
     function renderContent() {
         return contentPages[currentPage];
@@ -86,7 +19,37 @@ export default function App() {
 
     return (
         <>
-            {renderNavigation()}
+            <Navigation
+                leftButtons={
+                    <>
+                        <NavigationButton 
+                            href="#home" 
+                            onClick={() => setCurrentPage('home')} 
+                            className={currentPage === 'home' ? 'active' : ''}
+                        >
+                            Home
+                        </NavigationButton>
+                        <NavigationButton 
+                            href="#about" 
+                            onClick={() => setCurrentPage('home')}
+                        >
+                            About
+                        </NavigationButton>
+                        <NavigationButton 
+                            href="#info"
+                            onClick={() => setCurrentPage('info')}
+                            className={currentPage === 'info' ? 'active' : ''}
+                        >
+                            Info
+                        </NavigationButton>
+                    </>
+                }
+                rightButtons={
+                    <NavigationButton href="#play" className="play-button">
+                        Play
+                    </NavigationButton>
+                }
+            />
             <main className="content-container">
                 {renderContent()}
             </main>
