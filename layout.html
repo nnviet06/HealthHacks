@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search - FoodSafe</title>
+    <style>
+        /* Basic Reset and Font Style (Consistent with Homepage) */
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        main {
+            flex-grow: 1; /* Ensures footer sticks to the bottom */
+        }
+
+        /* --- Navigation Bar (Same as Homepage) --- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .navbar .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #d9534f;
+        }
+        .navbar .nav-links a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+        }
+        .navbar .cta-button {
+            background-color: #d9534f;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        /* --- Search Hero Section --- */
+        .search-hero {
+            background-color: #ffffff;
+            text-align: center;
+            padding: 60px 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .search-hero h1 {
+            font-size: 2.5em;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .search-hero input[type="search"] {
+            width: 70%;
+            max-width: 600px;
+            padding: 18px 25px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            border: 1px solid #ccc;
+            outline: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+         .search-hero input[type="search"]:focus {
+             border-color: #d9534f;
+             box-shadow: 0 0 0 3px rgba(217, 83, 79, 0.2);
+         }
+
+        /* --- Search Results Section --- */
+        .search-results-container {
+            padding: 40px 0;
+        }
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .result-card {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        .result-card h3 {
+            font-size: 1.6em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #d9534f;
+        }
+        .result-card .info-section {
+            margin-bottom: 15px;
+        }
+        .result-card .info-section strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        .result-card ul {
+            padding-left: 20px;
+            margin: 0;
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        /* --- No Results Message --- */
+        .no-results {
+            text-align: center;
+            padding: 50px;
+            font-size: 1.2em;
+            color: #777;
+        }
+
+        /* --- Footer (Same as Homepage) --- */
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: #333;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar container">
+        <div class="logo">FoodSafe</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Search</a>
+            <a href="#">About</a>
+        </div>
+        <a href="#" class="cta-button">PLAY NOW</a>
+    </nav>
+
+    <main>
+        <section class="search-hero">
+            <h1>What are you cooking today?</h1>
+            <input type="search" placeholder="Search for ingredients, e.g., 'chicken', 'salmon'...">
+        </section>
+
+        <div class="search-results-container container">
+            <div class="results-grid">
+                
+                <div class="result-card">
+                    <h3>Chicken Breast</h3>
+                    <div class="info-section">
+                        <strong>Safe Internal Temperature:</strong>
+                        <span>165°F / 74°C</span>
+                    </div>
+                    <div class="info-section">
+                        <strong>Safety Facts:</strong>
+                        <ul>
+                            <li>Always use a separate cutting board for raw poultry.</li>
+                            <li>Wash hands thoroughly before and after handling.</li>
+                            <li>Never wash raw chicken; it can spread bacteria.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <h3>Raw Salmon</h3>
+                    <div class="info-section">
+                        <strong>Safe Internal Temperature:</strong>
+                        <span>145°F / 63°C, or until flesh is opaque and separates easily.</span>
+                    </div>
+                    <div class="info-section">
+                        <strong>Safety Facts:</strong>
+                        <ul>
+                            <li>For sushi/sashimi, use commercially frozen "sushi-grade" fish.</li>
+                            <li>Store in the coldest part of the refrigerator.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="result-card">
+                    <h3>Leafy Greens (e.g., Lettuce)</h3>
+                    <div class="info-section">
+                        <strong>Safety Facts:</strong>
+                        <ul>
+                            <li>Wash thoroughly under running water before use.</li>
+                            <li>Discard any wilted or slimy leaves.</li>
+                            <li>Store pre-washed greens in the refrigerator and use by the expiration date.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            
+            </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 FoodSafe | A project for the Health Hacks Hackathon by [Your Team Name]</p>
+    </footer>
+
+</body>
+</html>

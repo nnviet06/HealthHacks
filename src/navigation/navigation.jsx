@@ -1,4 +1,4 @@
-import "./navigation.css";
+import "./Navigation.css";
 import { logo, brandName } from "../constants/theme";
 
 export function Navigation({ leftButtons, rightButtons }) {
@@ -18,10 +18,14 @@ export function Navigation({ leftButtons, rightButtons }) {
     )
 }
 
-export function NavigationButton({ href, children, className = "" }) {
+export function NavigationButton({ onClick, href, children, className = "" }) {
+    const handleClick = (e) => { // Prevent default link navigation
+        if (onClick) {
+            onClick(e);
+        }
+    };
     return (
-        
-        <a href={href} className={`navigation-button ${className}`}>
+        <a onClick={handleClick} href={href} className={`navigation-button ${className}`}>
             {children}
         </a>
     )
