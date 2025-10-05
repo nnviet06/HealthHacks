@@ -4,7 +4,7 @@
     justify-content: flex-start;
     align-items: center;
     background-color: #FFFFFF;
-    padding: 0 20px;  /* ✨ More generous padding */
+    padding: 40px 20px;  /* ✨ More generous padding */
     color: #333333;  /* ✨ Darker text for better contrast */
     min-height: 100vh;  /* ✨ Full viewport height */
 }
