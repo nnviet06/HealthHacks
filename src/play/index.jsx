@@ -1,35 +1,59 @@
 import './index.css';
-// Ensure the path and names are correct:
-// Assuming '../constants/gameinfo' exports an object with keys 'gameHTML' and 'gameName'.
 import { gameHTML, gameName } from '../constants/gameinfo'; 
 
 export default function Play() {
   
-  // 1. Check if gameHTML is provided and not an empty string
   const hasGameHTML = gameHTML && gameHTML.trim() !== '';
 
-  // Define the placeholder for when no game is loaded
   const Placeholder = (
     <div className="placeholder-html">
-      <p>Your game Embed HTML is missing or invalid.</p>
+      <div className="placeholder-icon">🎮</div>
+      <h2>No Game Loaded</h2>
+      <p>Your game embed HTML is missing or invalid.</p>
+      <p className="placeholder-hint">Add your game embed code to get started!</p>
     </div>
   );
 
   return (
-    <div className="play-container">
-      {/* 2. Display the game name, defaulting if necessary */}
-      <h1>{gameName || "Embedded Game"}</h1>
+    <div id="play" className="play-container">
+      <div className="play-header">
+        <h1 className="game-title">{gameName || "Embedded Game"}</h1>
+        <p className="game-subtitle">Use arrow keys to move, avoid obstacles, and have fun!</p>
+      </div>
       
-      {/* 3. FIX: Use dangerouslySetInnerHTML to correctly render the iframe string */}
-      {/* 4. RE-ADD: Conditional logic to render the placeholder if needed */}
-      {hasGameHTML ? (
-        <div 
-          className="embedded-game-wrapper" 
-          dangerouslySetInnerHTML={{ __html: gameHTML }} 
-        />
-      ) : (
-        Placeholder
-      )}
+      <div className="game-section">
+        {hasGameHTML ? (
+          <div className="game-frame-container">
+            <div 
+              className="embedded-game-wrapper" 
+              dangerouslySetInnerHTML={{ __html: gameHTML }} 
+            />
+          </div>
+        ) : (
+          Placeholder
+        )}
+      </div>
+
+      <div className="game-instructions">
+        <h2>How to Play</h2>
+        <div className="instructions-grid">
+          <div className="instruction-card">
+            <span className="instruction-icon">⌨️</span>
+            <h3>Controls</h3>
+            <p>Use arrow keys or WASD to move around</p>
+          </div>
+          <div className="instruction-card">
+            <span className="instruction-icon">🎯</span>
+            <h3>Objective</h3>
+            <p>Complete challenges and reach the goal</p>
+          </div>
+          <div className="instruction-card">
+            <span className="instruction-icon">⭐</span>
+            <h3>Tips</h3>
+            <p>Collect power-ups to boost your score</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,11 @@
+.learn-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 48px 20px;
+    min-height: 100vh;
+    width: 100%;  /* Fill parent width */
+    box-sizing: border-box;
+}

@@ -90,6 +90,13 @@
     color: white;
 }
 
+/* ✨ Active state for play button - keep red theme */
+.navigation-button.play-button.active {
+    background-color: #B71C1C;  /* Darker red for active state */
+    color: white;
+    box-shadow: 0 4px 12px rgba(183, 28, 28, 0.4);  /* Red glow effect */
+}
+
 /* ✨ Responsive design */
 @media (max-width: 768px) {
     .navigation-container {

@@ -1,7 +1,7 @@
 .content-container {
-    
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);  
-    min-width: 100vw;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); 
+    padding-top: 70px; 
+    width: 100%;  /* Use full width but not forced */
     min-height: 100vh;
-    overflow-x: hidden;  /* ✨ Prevent horizontal scroll */
+    overflow-x: hidden;
 }

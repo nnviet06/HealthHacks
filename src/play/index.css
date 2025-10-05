@@ -1,9 +1,202 @@
 .play-container {
   display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding-top: 70px;  /* ✨ Navbar height (70px) + spacing (16px) */
-    min-height: 100vh;
-    gap: 0;  /* ✨ Remove gaps - sections will have their own spacing */
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  padding: 100px 20px 40px;
+  gap: 40px;
+}
+
+/* Header Section */
+.play-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.game-title {
+  color: #2E7D32;
+  font-size: 48px;
+  font-weight: 800;
+  margin: 0 0 12px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.game-subtitle {
+  color: #555;
+  font-size: 18px;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Game Section */
+.game-section {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-frame-container {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-frame-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+}
+
+.embedded-game-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.embedded-game-wrapper iframe {
+  border-radius: 8px;
+  display: block;
+}
+
+/* Placeholder Styling */
+.placeholder-html {
+  background: white;
+  padding: 60px 40px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+}
+
+.placeholder-icon {
+  font-size: 80px;
+  margin-bottom: 20px;
+}
+
+.placeholder-html h2 {
+  color: #2E7D32;
+  font-size: 28px;
+  margin: 0 0 12px 0;
+}
+
+.placeholder-html p {
+  color: #666;
+  font-size: 16px;
+  margin: 8px 0;
+}
+
+.placeholder-hint {
+  color: #999 !important;
+  font-size: 14px !important;
+  font-style: italic;
+}
+
+/* Instructions Section */
+.game-instructions {
+  max-width: 900px;
+  width: 100%;
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.game-instructions h2 {
+  color: #2E7D32;
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 30px 0;
+  text-align: center;
+}
+
+.instructions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.instruction-card {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.instruction-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(46, 125, 50, 0.15);
+  border-color: #4CAF50;
+}
+
+.instruction-icon {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.instruction-card h3 {
+  color: #2E7D32;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+}
+
+.instruction-card p {
+  color: #666;
+  font-size: 15px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .play-container {
+    padding: 90px 16px 32px;
+    gap: 32px;
+  }
+
+  .game-title {
+    font-size: 36px;
+  }
+
+  .game-subtitle {
+    font-size: 16px;
+  }
+
+  .game-frame-container {
+    padding: 16px;
+  }
+
+  .game-instructions {
+    padding: 32px 24px;
+  }
+
+  .instructions-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .instruction-card {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-title {
+    font-size: 28px;
+  }
+
+  .embedded-game-wrapper iframe {
+    max-width: 100%;
+    height: auto;
+  }
 }

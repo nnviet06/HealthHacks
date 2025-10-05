@@ -1,4 +1,4 @@
-const gameHTMLSize = 500;
+const gameHTMLSize = 700;
 
 // Use backticks (`) to enable template literals
 const gameHTML = `<iframe 
