@@ -3,29 +3,29 @@ import './aboutSection.css';
 export default function AboutSection() {
     return (
         <section className="about-section-container" id="about">
-            <h1>About HealthHacks</h1>
+            <h1>Discover, Learn, Eat Smart</h1>
             <div className="purpose-container">
                 <PurposeBox 
-                    image="/placeholder-icon-1.png"
-                    description="Track your daily health metrics and build sustainable wellness habits"
+                    emoji="🥕"
+                    description="Discover nutritional facts, vitamins, and health benefits of everyday food ingredients"
                 />
                 <PurposeBox 
-                    image="/placeholder-icon-2.png"
-                    description="Get personalized insights and recommendations based on your health data"
+                    emoji="👨‍🍳"
+                    description="Explore meal ideas with dietary filters, allergen info, and step-by-step instructions"
                 />
                 <PurposeBox 
-                    image="/placeholder-icon-3.png"
-                    description="Join a community committed to achieving their health goals together"
+                    emoji="⚠️"
+                    description="Learn about contamination risks, proper storage, and safe food handling practices"
                 />
             </div>
         </section>
     )
 }
 
-function PurposeBox({ image, description }) {
+function PurposeBox({ emoji, description }) {
     return (
         <div className="purpose-box">
-            <img src={image} alt="purpose-image" />
+            <div className="purpose-emoji">{emoji}</div>
             <p>{description}</p>
         </div>
     )

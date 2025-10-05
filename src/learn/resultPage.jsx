@@ -1,5 +1,7 @@
 import "./resultPage.css";
 import { FILTER_CATEGORIES } from "../constants/filters.js";
+import { useState } from "react";
+import ItemDetailModal from "./resultModal.jsx";
 
 // Color palette for tags - cycles through these colors
 const TAG_COLORS = [
@@ -19,6 +21,24 @@ const getTagColor = (filterCategoryId) => {
     return TAG_COLORS[index % TAG_COLORS.length]; // Cycles if more filters than colors
 };
 
+// Helper function to highlight matching text
+const highlightText = (text, query) => {
+    if (!query || !text) return text;
+    
+    const parts = text.split(new RegExp(`(${query})`, 'gi'));
+    return (
+        <>
+            {parts.map((part, index) => 
+                part.toLowerCase() === query.toLowerCase() ? (
+                    <strong key={index} className="highlight">{part}</strong>
+                ) : (
+                    part
+                )
+            )}
+        </>
+    );
+};
+
 export default function ResultPage({ 
     searchInput,
     setSearchInput,
@@ -30,6 +50,8 @@ export default function ResultPage({
     onSubmit,
     results = []
 }) {
+    const [selectedItem, setSelectedItem] = useState(null);
+
     const handleSubmit = (e) => {
         e.preventDefault();
         onSubmit(searchInput);
@@ -96,7 +118,19 @@ export default function ResultPage({
             </div>
 
             {/* Results Grid */}
-            <ResultsGrid results={results} />
+            <ResultsGrid 
+                results={results} 
+                searchQuery={searchedQuery}
+                onCardClick={setSelectedItem}
+            />
+
+            {/* Item Detail Modal */}
+            {selectedItem && (
+                <ItemDetailModal 
+                    item={selectedItem}
+                    onClose={() => setSelectedItem(null)}
+                />
+            )}
         </div>
     );
 }
@@ -123,7 +157,7 @@ function FilterGroup({ label, options, active, applied, onChange }) {
     );
 }
 
-function ResultsGrid({ results }) {
+function ResultsGrid({ results, searchQuery, onCardClick }) {
     if (results.length === 0) {
         return (
             <div className="no-results">
@@ -140,24 +174,30 @@ function ResultsGrid({ results }) {
                 <ResultCard
                     key={result.id}
                     item={result}
+                    searchQuery={searchQuery}
+                    onClick={() => onCardClick(result)}
                 />
             ))}
         </div>
     );
 }
 
-function ResultCard({ item }) {
+function ResultCard({ item, searchQuery, onClick }) {
     // Get filter categories that should be displayed as tags (exclude sortBy)
     const filterCategories = FILTER_CATEGORIES.filter(cat => cat.id !== "sortBy");
     
     return (
-        <div className="result-card">
+        <div className="result-card" onClick={onClick}>
             <div className="result-icon">
                 <span className="icon-emoji">{item.icon}</span>
             </div>
             <div className="result-content">
-                <h3 className="result-title">{item.name}</h3>
-                <p className="result-description">{item.description}</p>
+                <h3 className="result-title">
+                    {highlightText(item.name, searchQuery)}
+                </h3>
+                <p className="result-description">
+                    {highlightText(item.description, searchQuery)}
+                </p>
                 
                 {/* Dynamically render all tags */}
                 <div className="result-tags">

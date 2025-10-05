@@ -239,7 +239,7 @@
 
 .result-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.2);
+    box-shadow: 0 12px 40px rgba(76, 175, 80, 0.2);
 }
 
 .result-image {
@@ -588,4 +588,13 @@
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Highlight matched text */
+.highlight {
+    font-weight: 800;
+    background: linear-gradient(135deg, #FFEB3B 0%, #FDD835 100%);
+    padding: 2px 4px;
+    border-radius: 4px;
+    color: #1B5E20;
 }
