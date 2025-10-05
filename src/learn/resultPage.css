@@ -233,6 +233,8 @@
     cursor: pointer;
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 1;
 }
 
 .result-card:hover {
@@ -283,10 +285,12 @@
     flex: 1;
 }
 
+/* Result Tags - Static, no expansion */
 .result-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
+    margin-top: 8px;
 }
 
 .result-tag {
@@ -294,6 +298,24 @@
     border-radius: 12px;
     font-size: 12px;
     font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.result-tag:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Hidden tags - always hidden */
+.hidden-tag {
+    display: none;
+}
+
+/* More indicator - always visible, no interaction */
+.tag-more {
+    background: #F5F5F5 !important;
+    color: #666 !important;
+    font-weight: 700;
 }
 
 .topic-tag {
@@ -514,4 +536,56 @@
 .icon-emoji {
     font-size: 120px;
     line-height: 1;
+}
+
+/* More tags indicator */
+.tag-more-container {
+    position: relative;
+    display: inline-block;
+}
+
+.tag-more {
+    background: #F5F5F5 !important;
+    color: #666 !important;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.tag-more:hover {
+    background: #E0E0E0 !important;
+    transform: scale(1.1);
+}
+
+/* Hidden tags popup */
+.tag-more-popup {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 8px;
+    padding: 12px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    display: none;
+    flex-wrap: wrap;
+    gap: 6px;
+    min-width: 200px;
+    max-width: 300px;
+    z-index: 10;
+    animation: fadeIn 0.2s ease;
+}
+
+.tag-more-container:hover .tag-more-popup {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

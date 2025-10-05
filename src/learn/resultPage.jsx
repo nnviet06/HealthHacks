@@ -159,36 +159,41 @@ function ResultCard({ item }) {
                 <h3 className="result-title">{item.name}</h3>
                 <p className="result-description">{item.description}</p>
                 
-                {/* Dynamically render tags for all filter categories */}
+                {/* Dynamically render all tags */}
                 <div className="result-tags">
                     {filterCategories.map((filterCategory) => {
                         const value = item[filterCategory.id];
                         
-                        // Skip if value is "All" or doesn't exist
+                        // Skip if value doesn't exist or is "All"
                         if (!value || value === "All") return null;
                         
                         // Get color based on filter position
                         const colors = getTagColor(filterCategory.id);
                         
-                        // Special handling for severity with icons
-                        let displayValue = value;
-                        if (filterCategory.id === "severity") {
-                            if (value === "High") displayValue = "⚠️ " + value;
-                            if (value === "Medium") displayValue = "⚡ " + value;
-                        }
+                        // Handle array values
+                        const values = Array.isArray(value) ? value : [value];
                         
-                        return (
-                            <span 
-                                key={filterCategory.id}
-                                className="result-tag"
-                                style={{
-                                    backgroundColor: colors.bg,
-                                    color: colors.text
-                                }}
-                            >
-                                {displayValue}
-                            </span>
-                        );
+                        return values.map((val) => {
+                            // Special handling for severity with icons
+                            let displayValue = val;
+                            if (filterCategory.id === "severity") {
+                                if (val === "High") displayValue = "⚠️ " + val;
+                                if (val === "Medium") displayValue = "⚡ " + val;
+                            }
+                            
+                            return (
+                                <span 
+                                    key={`${filterCategory.id}-${val}`}
+                                    className="result-tag"
+                                    style={{
+                                        backgroundColor: colors.bg,
+                                        color: colors.text
+                                    }}
+                                >
+                                    {displayValue}
+                                </span>
+                            );
+                        });
                     })}
                 </div>
             </div>

@@ -14,36 +14,41 @@ export default function Learn() {
 
     // Dynamic filtering and sorting based on FILTER_CATEGORIES constant
     const filteredResults = useMemo(() => {
-        // First, filter the results
         let results = MOCK_DATA.filter((item) => {
             // 1. Apply all filter categories (except sortBy)
             for (const filterCategory of FILTER_CATEGORIES) {
                 const filterValue = filters[filterCategory.id];
                 
-                // Skip if filter is set to "All" or is "sortBy" (sorting, not filtering)
+                // Skip if filter is set to "All" or is "sortBy"
                 if (filterValue === "All" || filterCategory.id === "sortBy") continue;
 
                 const itemValue = item[filterCategory.id];
-                
-                // Item passes if it matches the filter OR if item's value is "All"
-                if (itemValue !== filterValue && itemValue !== "All") {
-                    return false;
+
+                if (filterCategory.id === "dietary") {
+                    // dietary can be an array
+                    // Pass if itemValue includes filterValue
+                    if (!itemValue.includes(filterValue)) return false;
+                } else {
+                    // Existing logic for single-value filters
+                    if (itemValue !== filterValue && itemValue !== "All") return false;
                 }
             }
 
-            // 2. Search query filter (searches in name and description)
-            // Applied AFTER filters, only on items that passed filter criteria
+            // 2. Search query filter with null safety
             if (searchedQuery) {
-                const matchesSearch = 
-                    item.name.toLowerCase().includes(searchedQuery.toLowerCase()) ||
-                    item.description.toLowerCase().includes(searchedQuery.toLowerCase());
-                if (!matchesSearch) return false;
+                const searchLower = searchedQuery.toLowerCase();
+                const matchesName = item.name?.toLowerCase().includes(searchLower) || false;
+                const matchesDesc = item.description?.toLowerCase().includes(searchLower) || false;
+                
+                if (!matchesName && !matchesDesc) {
+                    return false;
+                }
             }
 
             return true;
         });
 
-        // Then, sort the filtered results
+        // Sort results
         const sortBy = filters.sortBy;
         if (sortBy === "A-Z") {
             results.sort((a, b) => a.name.localeCompare(b.name));
