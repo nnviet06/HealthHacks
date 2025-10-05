@@ -9,6 +9,6 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding-top: 70px;  /* ✨ Navbar height (70px) + spacing (16px) */
+      /* ✨ Navbar height (70px) + spacing (16px) */
     gap: 0;  /* ✨ Remove gaps - sections will have their own spacing */
 }
