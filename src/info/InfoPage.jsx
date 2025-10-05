@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import './InfoPage.css';
 
-// 1. Import Firestore functions
+// Firebase functions 1
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebase.js';
 
@@ -15,14 +15,14 @@ const defaultFoodItems = [
 ];
 
 const InfoPage = () => {
-  // Firebase-fetched data
+  // Firebase 2
   const [fetchedFoodItems, setFetchedFoodItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Carousel state
+  // Carousel state (front end only)
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Fetch data from Firestore on mount
+  // Firebase 3
   useEffect(() => {
     const fetchFoodData = async () => {
       try {
@@ -41,22 +41,25 @@ const InfoPage = () => {
     fetchFoodData();
   }, []);
 
+  //Firebase 4
   const items = fetchedFoodItems.length > 0 ? fetchedFoodItems : defaultFoodItems;
 
-  // Ensure currentIndex stays in bounds 
+  // Front end only
   useEffect(() => {
     if (currentIndex >= items.length) {
       setCurrentIndex(0);
     }
   }, [items, currentIndex]);
-
+  //Carousel controls (Front end only)
   const goToNext = () => setCurrentIndex((prev) => (prev + 1) % items.length);
   const goToPrevious = () => setCurrentIndex((prev) => (prev === 0 ? items.length - 1 : prev - 1));
 
+  // Firebase 5
   if (isLoading) {
     return <div>Loading data from Firebase...</div>;
   }
 
+  //Front end only
   const currentFood = items[currentIndex] || { name: 'No item', image: '' };
 
   return (
