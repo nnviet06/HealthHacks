@@ -3,7 +3,6 @@ import { gameHTML, gameName } from '../constants/gameinfo';
 
 export default function Play() {
   
-  const hasGameHTML = gameHTML && gameHTML.trim() !== '';
 
   const Placeholder = (
     <div className="placeholder-html">
@@ -22,37 +21,7 @@ export default function Play() {
       </div>
       
       <div className="game-section">
-        {hasGameHTML ? (
-          <div className="game-frame-container">
-            <div 
-              className="embedded-game-wrapper" 
-              dangerouslySetInnerHTML={{ __html: gameHTML }} 
-            />
-          </div>
-        ) : (
-          Placeholder
-        )}
-      </div>
-
-      <div className="game-instructions">
-        <h2>How to Play</h2>
-        <div className="instructions-grid">
-          <div className="instruction-card">
-            <span className="instruction-icon">⌨️</span>
-            <h3>Controls</h3>
-            <p>Use arrow keys or WASD to move around</p>
-          </div>
-          <div className="instruction-card">
-            <span className="instruction-icon">🎯</span>
-            <h3>Objective</h3>
-            <p>Complete challenges and reach the goal</p>
-          </div>
-          <div className="instruction-card">
-            <span className="instruction-icon">⭐</span>
-            <h3>Tips</h3>
-            <p>Collect power-ups to boost your score</p>
-          </div>
-        </div>
+        {gameHTML}
       </div>
     </div>
   );
