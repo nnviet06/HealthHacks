@@ -25,3 +25,6 @@ dist-ssr
 
 #Ignore env
 .env
+
+#API link data sample
+serviceAccountKey.json.json
