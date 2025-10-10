@@ -1,0 +1,240 @@
+/* Main Container */
+h1 {
+    color: #2E7D32;
+    font-size: 48px;
+    font-weight: 800;
+    margin: 0 0 32px 0;
+    text-align: center;
+}
+
+/* Search Wrapper */
+.search-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto 60px;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    position: absolute;
+    left: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22px;
+    pointer-events: none;
+    z-index: 1;
+    transition: all 0.3s ease;
+    color: #4CAF50;
+}
+
+/* Search Input */
+input[type="search"] {
+    width: 100%;
+    padding: 20px 32px 20px 68px;
+    font-size: 17px;
+    border: 2px solid #E8E8E8;
+    border-radius: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    background: white;
+    font-weight: 500;
+    color: #333;
+}
+
+input[type="search"]::placeholder {
+    color: #999;
+    font-weight: 400;
+}
+
+input[type="search"]:focus {
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.15);
+    border-color: #4CAF50;
+}
+
+input[type="search"]:focus + .search-icon {
+    transform: translateY(-50%) scale(1.15);
+    color: #2E7D32;
+}
+
+.search-wrapper:focus-within .search-icon {
+    transform: translateY(-50%) scale(1.15);
+    color: #2E7D32;
+}
+
+/* Topic List Section */
+.topic-list {
+    margin-bottom: 40px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.topic-title {
+    color: #2E7D32;
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0 0 40px 0;
+    text-align: center;
+}
+
+.topic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+}
+
+.topic-item {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 3px solid transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.topic-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(76, 175, 80, 0.25);
+    border-color: #4CAF50;
+}
+
+.topic-icon {
+    font-size: 72px;
+    margin-bottom: 8px;
+}
+
+.topic-item-title {
+    color: #2E7D32;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.topic-item-description {
+    color: #666;
+    font-size: 16px;
+    margin: 0;
+    line-height: 1.6;
+    flex: 1;
+}
+
+/* Example Tags */
+.topic-examples {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.example-tag {
+    background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+    color: #2E7D32;
+    padding: 6px 14px;
+    border-radius: 16px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid #A5D6A7;
+    transition: all 0.2s ease;
+}
+
+.example-tag:hover {
+    background: #4CAF50;
+    color: white;
+    border-color: #4CAF50;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 36px;
+        margin: 0 0 24px 0;
+    }
+
+    .search-wrapper {
+        margin-bottom: 40px;
+    }
+
+    .search-icon {
+        left: 24px;
+        font-size: 20px;
+    }
+
+    input[type="search"] {
+        font-size: 16px;
+        padding: 18px 28px 18px 60px;
+    }
+
+    .topic-title {
+        font-size: 32px;
+        margin-bottom: 32px;
+    }
+
+    .topic-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .topic-item {
+        padding: 32px 24px;
+    }
+
+    .topic-icon {
+        font-size: 64px;
+    }
+
+    .topic-item-title {
+        font-size: 24px;
+    }
+
+    .topic-item-description {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    .search-icon {
+        font-size: 18px;
+        left: 20px;
+    }
+
+    input[type="search"] {
+        font-size: 15px;
+        padding: 16px 24px 16px 54px;
+    }
+
+    .topic-title {
+        font-size: 28px;
+    }
+
+    .topic-item {
+        padding: 28px 20px;
+    }
+
+    .topic-icon {
+        font-size: 56px;
+    }
+
+    .topic-item-title {
+        font-size: 22px;
+    }
+
+    .example-tag {
+        font-size: 12px;
+        padding: 5px 12px;
+    }
+}

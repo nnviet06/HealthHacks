@@ -1,0 +1,119 @@
+@import "../constants/theme.css";
+
+.navigation-container {
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;  /* ✨ Better vertical alignment */
+    box-sizing: border-box;
+    margin: 0;
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 32px;  /* ✨ More horizontal padding */
+    height: 70px;
+    width: 100%;
+    z-index: 1000;  /* ✨ Ensure it stays on top */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);  /* ✨ Subtle shadow for depth */
+}
+
+.navigation-side {
+    display: flex;
+    flex-direction: row;
+    align-items: center;  /* ✨ Vertical alignment */
+    gap: 8px;  /* ✨ Consistent spacing between buttons */
+}
+
+.navigation-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 20px;  /* ✨ Better proportions */
+    font-size: 18px;  /* ✨ Slightly smaller for balance */
+    font-weight: 600;  /* ✨ Medium weight */
+    color: #2E7D32;
+    background-color: #FFFFFF;
+    border-radius: 8px;  /* ✨ Rounded corners for modern look */
+    text-decoration: none;  /* ✨ Remove underline from links */
+    transition: all 0.3s ease;  /* ✨ Smooth transitions */
+    white-space: nowrap;  /* ✨ Prevent text wrapping */
+}
+
+.navigation-button.logo-button {
+    flex-direction: row;
+    gap: 12px;  /* ✨ Slightly more space */
+    padding: 8px 16px;
+    background-color: transparent;  /* ✨ Transparent for logo */
+    color: white;  /* ✨ White text for logo */
+    font-size: 20px;  /* ✨ Larger for brand */
+    font-weight: 700;  /* ✨ Bolder for brand */
+}
+
+.navigation-button.logo-button:hover {
+    background-color: transparent;  /* ✨ No hover effect for logo */
+    cursor: default;  /* ✨ Normal cursor for logo */
+}
+
+.navigation-button.logo-button img {
+    height: 40px;  /* ✨ Set explicit logo size */
+    width: auto;
+}
+
+.navigation-button:hover {
+    cursor: pointer;
+    background-color: #C8E6C9;
+    transform: translateY(-2px);  /* ✨ Lift effect on hover */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);  /* ✨ Shadow on hover */
+}
+
+.navigation-button.play-button {
+    border-radius: 32px;
+    background-color: #E53935;
+    color: #FFFFFF;
+    padding: 12px 24px;  /* ✨ Better padding for CTA */
+    font-weight: 700;  /* ✨ Bold for emphasis */
+    min-width: 100px;  /* ✨ Consistent width */
+}
+
+.navigation-button.play-button:hover {
+    background-color: #C62828;  /* ✨ Darker red on hover */
+    color: #FFFFFF;
+    transform: translateY(-2px) scale(1.05);  /* ✨ Lift + slight grow */
+}
+
+/* ✨ Active state for current page */
+.navigation-button.active {
+    background-color: #81C784;
+    color: white;
+}
+
+/* ✨ Active state for play button - keep red theme */
+.navigation-button.play-button.active {
+    background-color: #B71C1C;  /* Darker red for active state */
+    color: white;
+    box-shadow: 0 4px 12px rgba(183, 28, 28, 0.4);  /* Red glow effect */
+}
+
+/* ✨ Responsive design */
+@media (max-width: 768px) {
+    .navigation-container {
+        padding: 12px 16px;
+        height: auto;
+    }
+    
+    .navigation-button {
+        font-size: 16px;
+        padding: 10px 16px;
+    }
+    
+    .navigation-button.logo-button {
+        font-size: 18px;
+    }
+    
+    .navigation-button.logo-button img {
+        height: 32px;
+    }
+}
